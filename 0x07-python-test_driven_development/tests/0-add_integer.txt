@@ -1,0 +1,112 @@
+
+Import the function
+    add_integer = __import__('0-add_integer').add_integer
+Test with two integers
+    >>> print(add_integer(4, 3))
+    7
+Test with an int and a float
+    >>> print(add_integer(4, 1.3))
+    5
+test with a string and an int
+    >>> print(add_integer('4', 1))
+    raise TypeError("a must be an integer")
+TypeError: a must be an integer
+test with a negative int and a negative int
+    >>> print(add_integer(-1, -4))
+-5
+test with an int and a boolean
+    >>> print(add_integer(4, True))
+5
+test with two integers with the second being the same as the default value of b 
+    >>> print(add_integer(4))
+    102
+
+test with positive float and a positive integer
+    >>> print(add_integer(5.5, 5))
+    10
+
+test with a float and an integer where the integer is equal to the default value of b 
+    >>> print(add_integer(3.4))
+    101
+
+test with a positive float and a negative integer
+	    >>> print(add_integer(2.7, -7))
+	    -5
+
+test with two negative floats 
+	    >>> print(add_integer(-2.7, -4.2))
+	    -6
+
+test with an integer number and a string
+    >>> print(add_integer(4, "Hello"))
+    Traceback (most recent call last):
+	      ...
+    TypeError: b must be an integer
+
+Passing no argument to the function
+    >>> print(add_integer(None))
+    Traceback (most recent call last):
+	      ...
+    TypeError: a must be an integer
+
+test with a letter and a number
+    >>> print(add_integer('c', 1))
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+test with two letters
+    >>> print(add_integer('a', 'e'))
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+test with a tuple
+    >>> print(add_integer((1, 2)))
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+test with a number and a list
+    >>> print(add_integer(123, []))
+    Traceback (most recent call last):
+	      ...
+    TypeError: b must be an integer
+
+Passing a only one string
+    >>> print(add_integer("Hello"))
+    Traceback (most recent call last):
+	      ...
+    TypeError: a must be an integer
+
+test with two float numbers
+    >>> print(add_integer(2.2, 4.4))
+    6
+
+Case Overflow:
+
+    >>> add_integer(float('inf'), 0)
+    Traceback (most recent call last):
+    	      ...
+    OverflowError: cannot convert float infinity to integer
+
+Case Overflow 2:
+
+    >>> add_integer(float('inf'), float('-inf'))
+    Traceback (most recent call last):
+    	      ...
+    OverflowError: cannot convert float infinity to integer
+
+Case NaN 1:
+
+    >>> add_integer(0, float('nan'))
+    Traceback (most recent call last):
+    	      ...
+    ValueError: cannot convert float NaN to integer
+
+Case NaN 2:
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    	      ...
+    ValueError: cannot convert float NaN to integer
